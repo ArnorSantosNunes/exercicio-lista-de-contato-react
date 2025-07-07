@@ -49,7 +49,7 @@ const ContactForm: React.FC<ContactFormProps> = ({
     const { name, value } = e.target
     setFormData((prev) => ({
       ...prev,
-      [name]: value,
+      [name]: value
     }))
   }
 

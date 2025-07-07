@@ -55,7 +55,7 @@ const initialState: ContactsState = {
       telefone: '(11) 9 9999-4444',
       categoria: 'amigos',
       favorito: false
-    },
+    }
   ],
   filter: 'todos'
 }
@@ -67,7 +67,7 @@ const contactsSlice = createSlice({
     addContact: (state, action: PayloadAction<Omit<Contact, 'id'>>) => {
       const newContact: Contact = {
         ...action.payload,
-        id: Date.now().toString(),
+        id: Date.now().toString()
       }
       state.contacts.push(newContact)
     },
@@ -94,8 +94,8 @@ const contactsSlice = createSlice({
     },
     setFilter: (state, action: PayloadAction<ContactCategory>) => {
       state.filter = action.payload
-    },
-  },
+    }
+  }
 })
 
 export const {

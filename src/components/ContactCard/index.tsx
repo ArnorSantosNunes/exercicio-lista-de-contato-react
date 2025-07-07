@@ -17,7 +17,7 @@ import {
   ContactInfo,
   ActionsContainer,
   ActionButton,
-  FavoriteIcon,
+  FavoriteIcon
 } from './styles'
 
 interface ContactCardProps {
