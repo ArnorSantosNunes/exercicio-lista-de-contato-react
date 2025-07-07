@@ -41,7 +41,7 @@ const ContactForm: React.FC<ContactFormProps> = ({
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
     if (formData.nomeCompleto && formData.email && formData.telefone) {
-      onSubmit(formData)
+      onSubmit(formData) // Isso chamará onBack no componente NewContact
     }
   }
 

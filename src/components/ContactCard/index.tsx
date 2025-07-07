@@ -9,7 +9,7 @@ import {
   updateContact
 } from '../../store/contactsSlice'
 import type { Contact } from '../../types/Contact'
-import ContactForm from '../ContactForm'
+import ContactForm from '../ContactFrom'
 import {
   CardContainer,
   ContactName,

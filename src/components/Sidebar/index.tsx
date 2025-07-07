@@ -12,7 +12,11 @@ import {
   NewContactButton
 } from './styles'
 
-const Sidebar: React.FC = () => {
+interface SidebarProps {
+  onNewContact?: () => void
+}
+
+const Sidebar: React.FC<SidebarProps> = ({ onNewContact }) => {
   const navigate = useNavigate()
   const dispatch = useAppDispatch()
   const { contacts, filter } = useAppSelector((state) => state.contacts)
@@ -49,6 +53,14 @@ const Sidebar: React.FC = () => {
     { key: 'trabalho' as ContactCategory, label: 'Trabalho', icon: '🍊' }
   ]
 
+  const handleNewContactClick = () => {
+    if (onNewContact) {
+      onNewContact() // Usa a prop se existir
+    } else {
+      navigate('/novo') // Fallback para navegação padrão
+    }
+  }
+
   return (
     <SidebarContainer>
       {categories.map((category) => (
@@ -62,7 +74,7 @@ const Sidebar: React.FC = () => {
           <CategoryCount>{getCategoryCount(category.key)}</CategoryCount>
         </SidebarItem>
       ))}
-      <NewContactButton onClick={() => navigate('/novo')}>
+      <NewContactButton onClick={handleNewContactClick}>
         Novo Contato
       </NewContactButton>
     </SidebarContainer>

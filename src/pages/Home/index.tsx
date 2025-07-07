@@ -1,12 +1,19 @@
+// src/pages/Home/index.tsx
 import type React from 'react'
 import Sidebar from '../../components/Sidebar'
 import ContactList from '../../components/ContactList'
 import { Container, MainContent } from '../../styles/GlobalStyles'
 
-const Home: React.FC = () => {
+// Adicione esta interface
+interface HomeProps {
+  onNewContact?: () => void
+}
+
+const Home: React.FC<HomeProps> = ({ onNewContact }) => {
   return (
     <Container>
-      <Sidebar />
+      {/* Passe a prop para o Sidebar */}
+      <Sidebar onNewContact={onNewContact} />
       <MainContent>
         <ContactList />
       </MainContent>

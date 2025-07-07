@@ -2,6 +2,7 @@
 
 import type React from 'react'
 import { useState } from 'react'
+import { BrowserRouter as Router } from 'react-router-dom'
 import { Provider } from 'react-redux'
 import { store } from './store'
 import { GlobalStyle } from './styles/GlobalStyles'
@@ -16,18 +17,20 @@ const App: React.FC = () => {
   }
 
   const handleBackToHome = () => {
-    setCurrentPage('home')
+    setCurrentPage('home') // Fecha o formulário
   }
 
   return (
-    <Provider store={store}>
-      <GlobalStyle />
-      {currentPage === 'home' ? (
-        <Home onNewContact={handleNewContact} />
-      ) : (
-        <NewContact onBack={handleBackToHome} />
-      )}
-    </Provider>
+    <Router>
+      <Provider store={store}>
+        <GlobalStyle />
+        {currentPage === 'home' ? (
+          <Home onNewContact={handleNewContact} />
+        ) : (
+          <NewContact onBack={handleBackToHome} />
+        )}
+      </Provider>
+    </Router>
   )
 }
 
